@@ -39,7 +39,13 @@
                             {{-- Bottone che triggera il modale --}}
                             <button class="btn btn-danger" type="submit" data-bs-toggle="modal"
                                 data-bs-target="#deleteModal"> Cancella </button>
-                            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal"
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -64,10 +70,4 @@
                                     </div>
                                 </div>
                             </div>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
 @endsection
