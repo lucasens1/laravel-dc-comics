@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
         <h1 class="text-center my-5">Dettagli Fumetto : {{$comic->title}}</h1>
-        <div class="card d-flex align-items-center">
+        <div class="d-flex align-items-center">
             <img class="w-25 mt-2 mb-3"   src="{{($comic->thumb)}}" alt="Immagine non disponibile">
-            <div class="card-body my-2">
-                <h4>{{ $comic->description}}</h4>
-                <h5>{{ $comic->series }} uscito il : {{ $comic->sale_date }}</h5>
-                <p>{{ $comic->price }}</p>
+            <div class="mx-2">
+                <h6>{{ $comic->description}}</h6>
+                <p>{{ $comic->series }} uscito il : {{ $comic->sale_date }}</p>
+                <p><i><b>{{ $comic->price }}</b></i></p>
             </div>
         </div>
     </div>
