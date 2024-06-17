@@ -3,7 +3,7 @@ import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**"]);
 
-// Prendo i bottoni cancella
+/* // Prendo i bottoni cancella
 const deleteButtons = document.querySelectorAll('.btn-danger');
 
 console.log(deleteButtons);
@@ -16,4 +16,4 @@ deleteButtons.forEach(curBtn => {
             e.preventDefault();
         }
     });
-});
+}); */
