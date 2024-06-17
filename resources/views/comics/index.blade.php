@@ -36,38 +36,49 @@
                                 @method('DELETE')                            
                             </form> 
                             --}}
-                            {{-- Bottone che triggera il modale --}}
+                            {{-- 
+                            Bottone che triggera il modale
+                            data-action salva l'URL
+                            --}}
                             <button class="btn btn-danger" type="submit" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal"> Cancella </button>
+                                data-bs-target="#deleteModal">
+                                Cancella
+                            </button>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5">Conferma azione</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Sei sicuro di voler cancellare il dato?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <form action="{{ route('comics.destroy', ['comic' => $item->id]) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-primary" type="submit">Save changes</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    {{-- MODALE id -> deleteModal --}}
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+        {{-- FINESTRA DI DIALOGO Modale --}}
+        <div class="modal-dialog">
+            {{-- Contenuto Modale --}}
+            <div class="modal-content">
+                {{-- Head --}}
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Conferma azione</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                {{-- Body --}}
+                <div class="modal-body">
+                    Sei sicuro di voler cancellare il dato?
+                </div>
+                {{-- Footer con i bottoni --}}
+                <div class="modal-footer">
+                    {{-- Caso : aperto per errore --}}
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Annulla
+                    </button>
+                    {{-- Caso : conferma eliminazione, l'azione del form si attiverà al click sul btn di conferma --}}
+                    <form action="{{ route('comics.destroy', ['comic' => $item->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-primary" type="submit">Conferma eliminazione</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
