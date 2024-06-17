@@ -21,7 +21,14 @@
                     <th scope="row">{{ $item->id }}</th>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->type }}</td>
-                    <td><button class="btn btn-success"><a href="{{route('comics.show',['comic'=>$item->id])}}">Dettagli</a></button></td>
+                    <td>
+                        <button class="btn btn-success">
+                            <a href="{{route('comics.show',['comic'=>$item->id])}}">Dettagli</a>
+                        </button>
+                        <button class="btn btn-warning">
+                            <a href="{{route('comics.edit',['comic'=>$item->id])}}">Modifica</a>
+                        </button>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

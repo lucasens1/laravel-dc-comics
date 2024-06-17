@@ -23,7 +23,8 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        // Restituisco la view
+        return view('comics.create');
     }
 
     /**
@@ -31,7 +32,20 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Implemento il salvataggio dei dati
+        $data = $request->all();
+        $comic = new Comic();
+        $comic->title = $data['title'];
+        $comic->description = $data['description'];
+        $comic->thumb = $data['thumb'];
+        $comic->price = $data['price'];
+        $comic->series = $data['series'];
+        $comic->sale_date = $data['sale_date'];
+        $comic->type = $data['type'];
+        $comic->save();
+
+        // Rindirizzo alla pagina del relativo nuovo comic tramite il suo id
+        return redirect()->route("comics.show", ["comic" => $comic->id]);
     }
 
     /**
@@ -46,17 +60,22 @@ class ComicController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+        # Nella variabile $comic abbiamo i dati vecchi da aggiornare
+        /* dd($comic, $data); */ // Così vediamo i dati a confronto
+
+        $comic->update($data); // Per fare operazione serve $fillable nel model
+        return redirect()->route('comics.index');
     }
 
     /**
