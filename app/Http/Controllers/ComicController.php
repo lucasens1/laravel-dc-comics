@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -30,7 +32,7 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
         // Implemento il salvataggio dei dati
         $data = $request->all();
@@ -68,7 +70,7 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
         $data = $request->all();
         # Nella variabile $comic abbiamo i dati vecchi da aggiornare
