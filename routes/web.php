@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ComicController;
+use App\Http\Controllers\ComicTrashController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,10 @@ Route::get('/', function () {
 });
 
 Route::resource('comics', ComicController::class);
+
+/* 
+Rotte per il cestino 
+*/
+Route::get('/trash', [ComicTrashController::class, 'index'])->name('comics.trash');
+Route::post('/comics/{id}/restore', [ComicTrashController::class, 'restore'])->name('comics.restore');
+Route::delete('/comics/{id}/force-delete', [ComicTrashController::class, 'forceDelete'])->name('comics.force-delete');
