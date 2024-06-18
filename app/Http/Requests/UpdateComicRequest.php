@@ -31,18 +31,18 @@ class UpdateComicRequest extends FormRequest
             'type' => ['required']
         ];
     }
-
     /* 
     Sovrascrivo la funzione
     */
     public function messages() {
         return [
             'title.required' => 'Il titolo non può essere vuoto',
-            'title.min:3' => 'Inserisci almeno 3 caratteri',
+            'title.min' => 'Inserisci almeno 3 caratteri',
             'sale_date.required' => 'Inserisci una data',
             'price.required' => 'Inserisci un prezzo ex : $5,99',
             'type.required' => 'Seleziona il tipo di fumetto',
-            'description.min:20' => 'Inserisci almeno 20 caratteri'
+            'description.min' => 'Inserisci almeno 20 caratteri',
+            'series.required' => 'Inserisci una serie per il fumetto'
         ];
     }
 }
