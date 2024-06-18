@@ -40,6 +40,8 @@
                             Bottone che triggera il modale
                             data-action salva l'URL
                             --}}
+
+                            {{-- PER USARE JS Questo deve tornare nel form --}}
                             <button class="btn btn-danger" type="submit" data-bs-toggle="modal"
                                 data-bs-target="#deleteModal">
                                 Cancella
@@ -63,7 +65,7 @@
                 </div>
                 {{-- Body --}}
                 <div class="modal-body">
-                    Sei sicuro di voler cancellare il dato?
+                    Sei sicuro di voler cancellare il fumetto : ?
                 </div>
                 {{-- Footer con i bottoni --}}
                 <div class="modal-footer">
